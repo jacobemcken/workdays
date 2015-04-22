@@ -12,6 +12,7 @@
 
 (def validate
   (v/combine
+   (v/required [:ref-date :workdays])
    (v/matches iso-8601-pattern :ref-date "must be using a iso 8601 valid format")
    (v/matches #"\-?[0-9]+" :workdays "must be an integer")))
 
