@@ -50,7 +50,7 @@ of the rules in the D1 regulation."
   "Iterates through workdays from ref-date and returns the first Joda-Time LocalDate object after the nth workday."
   [^LocalDate ref-date ^Integer nth-workday]
   (when-not (zero? nth-workday)
-    (let [direction (if (pos? nth-workday) t/plus t/minus)
-          steps (- (math/abs nth-workday) 1) ; calibrate for nth offset 1 = 0, 2 = 1, 10 = 9 etc, also -1 = 0, -2 = 1, -10 = 9
-          workdays (workday-sequence ref-date direction)]
-      (direction (nth workdays steps) (t/days 1)))))
+    (let [steps (- (math/abs nth-workday) 1)] ; calibrate for nth offset 1 = 0, 2 = 1, 10 = 9 etc, also -1 = 0, -2 = 1, -10 = 9
+      (if (pos? nth-workday)
+        (t/plus (nth (workday-sequence ref-date t/plus) steps) (t/days 1))
+        (nth (workday-sequence ref-date t/minus) steps)))))
