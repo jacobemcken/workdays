@@ -49,6 +49,8 @@ of the rules in the D1 regulation."
 (defn nth-workday
   "Iterates through workdays from ref-date and returns the first Joda-Time LocalDate object after the nth workday."
   [^LocalDate ref-date ^Integer nth-workday]
+  (when-not (instance? org.joda.time.LocalDate ref-date)
+    (throw (Exception. "ref-date must be an instance of org.joda.time.LocalDate")))
   (when-not (zero? nth-workday)
     (let [steps (- (math/abs nth-workday) 1)] ; calibrate for nth offset 1 = 0, 2 = 1, 10 = 9 etc, also -1 = 0, -2 = 1, -10 = 9
       (if (pos? nth-workday)
