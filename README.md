@@ -36,7 +36,7 @@ ref-date must be a valid iso 8601 string while workdays must be an integer
 
 ``` bash
 lein ring uberjar
-java -jar target/workdays-1.0.0-standalone.jar
+java -jar target/workdays-1.1.0-standalone.jar
 ```
 
 To use an alternative port for Jetty (3000 is default) just set the
@@ -44,7 +44,7 @@ environment variable PORT ie.
 
 ``` bash
 export PORT=8080
-java -jar target/workdays-1.0.0-standalone.jar
+java -jar target/workdays-1.1.0-standalone.jar
 ```
 
 
