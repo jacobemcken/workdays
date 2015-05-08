@@ -1,4 +1,4 @@
-(defproject workdays "1.0.0"
+(defproject workdays "1.1.0"
   :description "Lib and service to calculate workdays in the danish energy market (electricity and gas)"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
