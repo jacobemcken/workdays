@@ -9,7 +9,15 @@
   (list [1 1] [6 5] [12 24] [12 25] [12 26] [12 31]))
 
 (def easter-relative-non-workdays
-  (list -3 -2 1 26 39 40 50))
+  (list
+   -3 ; Skærtorsdag
+   -2 ; Langfredag
+   1  ; 2. Påskedag
+   26 ; Storebededag
+   39 ; Kristihimmelfart
+   40 ; Kristihimmelfart +1
+   50 ; 2. Pinsedag
+   ))
 
 (defn fixed-non-workdays
   "Returns a set of date objects which isn't work days in the given year.
